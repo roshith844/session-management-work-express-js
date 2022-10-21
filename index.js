@@ -21,13 +21,13 @@ const user= {
 app.get('/login',(req,res)=>{
      req.session.user =user
      req.session.save()
-     req.sessionID('user Logged In')
+     return res.send('user Logged In. check cookies on console')
 })
 app.get('/user',(req,res)=>{
      return res.send(req.session.user)
 })
 app.get('/logout',(req,res)=>{
      req.session.destroy()
-     res.send('user logged out')
+     res.send('user logged out. now you cannot acess user')
 })
 app.listen(PORT,()=>console.log(`server started running ${PORT}`))
